@@ -72,10 +72,10 @@
 		
 		<div class="summary-box">
        		<div class="small-photo-box">
-             	<img src="{{portraitUrl}}"/>
+             	<a href="{{profileURL}}"><img src="{{portraitUrl}}"/></a>
             </div>
             <div class="brief-wrapper">
-                <div class="name field-value">{{fullName}}</div>
+                <div class="name field-value"><a href="{{profileURL}}">{{fullName}}</a></div>
        		    <div class="mail field-value"><a href="mailto:{{emailAddress}}">{{emailAddress}}</a></div>
 				<div class="contact-short-info">
                 	<c:if test="<%= skypeEnabled %>">

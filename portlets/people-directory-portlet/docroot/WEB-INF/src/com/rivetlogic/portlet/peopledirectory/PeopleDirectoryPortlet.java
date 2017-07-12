@@ -141,6 +141,8 @@ public class PeopleDirectoryPortlet extends MVCPortlet {
         jsonUser.put(Constants.JSON_USER_EMAIL_ADDRESS, user.getDisplayEmailAddress());
         jsonUser.put(Constants.JSON_USER_PORTRAIT_URL,
                 user.getPortraitURL((ThemeDisplay) request.getAttribute(WebKeys.THEME_DISPLAY)));
+        jsonUser.put(Constants.JSON_USER_PROFILE_URL,
+                user.getDisplayURL((ThemeDisplay) request.getAttribute(WebKeys.THEME_DISPLAY)));
         jsonUser.put(Constants.JSON_USER_PHONE, PeopleDirectoryUtil.getPhoneField(user));
         jsonUser.put(Constants.JSON_USER_SKYPE_NAME, user.getContact().getSkypeSn());
         
