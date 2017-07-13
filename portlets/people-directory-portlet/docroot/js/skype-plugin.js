@@ -95,7 +95,7 @@ AUI.add(
                 		
                 		if (items.size() != 0) {
                 			Skype.tryAnalyzeSkypeUri('chat', '0');
-                			var users = instance.getCurrentSkypeUsers();
+                			var users = instance.getCurrentSkypeUsers().join(';');
                             instance.skypeHelper.openSkypeURI(skypeClientFrameId, "skype:" + users + "?" + action);
                 			//location.href = "skype:" + users + "?"+action;
                 		}
@@ -175,10 +175,10 @@ AUI.add(
             */
             getCurrentSkypeUsers: function() {
                 var instance = this,
-                	users = "";
+                	users = [];
                 
                 instance.container.all("#users li").each(function(li){
-                    users += li.getAttribute("skypeId") + ";";
+                    users.push( li.getAttribute("skypeId") );
                 });
                 
                 return users;
