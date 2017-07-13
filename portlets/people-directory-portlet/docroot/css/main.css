@@ -89,9 +89,13 @@ input.simple-search-keywords {
 	text-shadow: 1px 1px 1px #FFFFFF;
 	font-family: 'Rokkitt',serif;
     display: block;
-    width: 60%;
+    width: calc(100% - 25px);
     padding-left: 10px;
     float: left;
+}
+
+.mail.field-value {
+	word-wrap: break-word;
 }
 
 .slide-up,
