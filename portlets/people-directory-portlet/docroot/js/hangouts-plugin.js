@@ -15,6 +15,8 @@ AUI.add('hangouts-plugin-people-directory', function(A) {
             setComponents: function() {
             	var instance = this;
             	
+            	instance.hangoutsList = instance.container.one('.hangouts-users-to-call');
+            	
             	instance.userList = instance.container.one('#hangouts-users');
             	instance.buttonId = 'hangouts-button-placeholder';
             	
@@ -45,6 +47,7 @@ AUI.add('hangouts-plugin-people-directory', function(A) {
             		var template = A.Handlebars.compile(instance.hangoutsItem),
                     html = template({ username: username });
                     instance.userList.append(html);
+                    instance.hangoutsList.show();
             		instance.renderButton();
             	}
             },
@@ -54,6 +57,9 @@ AUI.add('hangouts-plugin-people-directory', function(A) {
             	var index = instance.users.indexOf(email);
             	instance.users.splice(index, 1);
             	instance.renderButton();
+            	if(instance.users.length == 0){
+            		instance.hangoutsList.hide();
+            	}
             },
             
             renderButton: function() {

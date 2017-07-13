@@ -142,7 +142,7 @@
 							</div>
 						</c:if>
 						<c:if test="<%= hangoutsEnabled %>">
-							<div class="hangouts-users-to-call">
+							<div class="hangouts-users-to-call" style="display:none">
 								<span class="action-header"><liferay-ui:message key="hangouts-actions"/></span>
 								<ul id="hangouts-users">
 								</ul>
