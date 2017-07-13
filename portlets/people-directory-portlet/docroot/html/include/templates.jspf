@@ -41,13 +41,6 @@
         <td class="field-value more-info-title"><liferay-ui:message key="city" />:</td>
         <td class="info" >{{city}}</td>
       </tr>
-    <c:if test="<%= hangoutsEnabled %>">
-      <tr>
-        <td class="field-value more-info-title"><liferay-ui:message key="google-hangouts" />:</td>
-        <td class="info"></td>
-        <td><span class="icon icon-google-plus" userId="{{emailAddress}}" username="{{fullName}}"></span></td>
-      </tr>
-    </c:if>
       <tr>
         <td class="field-value more-info-title"><liferay-ui:message key="phone" />:</td>
         <td class="info">{{phone}}</td>
@@ -57,15 +50,6 @@
 			{{/if}}
 		</c:if>
       </tr>
-  	<c:if test="<%= skypeEnabled %>">
-      <tr>
-        <td class="field-value more-info-title"><liferay-ui:message key="skype" />:</td>
-        <td class="info">{{skypeName}}</td>
-		{{#if skypeName}}		
-			<td><span class="icon icon-skype" title="{{skypeName}}" userId="{{id}}" username="{{fullName}}"></span></td>
-		{{/if}}
-      </tr>
-	</c:if>
 	<c:if test="<%= skillsEnabled %>">
 	  <tr>
 		<td class="field-value more-info-title"><liferay-ui:message key="people-directory.label.skills" />:</td>
