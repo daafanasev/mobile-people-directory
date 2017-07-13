@@ -75,6 +75,9 @@ AUI.add(
                 if (instance.skypeList) {
                 	instance.skypeList.delegate("click", function(){
                 		this.ancestor("li").remove();
+                		if(instance.getCurrentSkypeUsers().length==0){
+                			instance.skypeList.hide();
+                		}
                 	}, ".handle");
                 }
             },
@@ -92,7 +95,7 @@ AUI.add(
                 		
                 		if (items.size() != 0) {
                 			Skype.tryAnalyzeSkypeUri('chat', '0');
-                			var users = instance.getCurrentSkypeUsers();
+                			var users = instance.getCurrentSkypeUsers().join(';');
                             instance.skypeHelper.openSkypeURI(skypeClientFrameId, "skype:" + users + "?" + action);
                 			//location.href = "skype:" + users + "?"+action;
                 		}
@@ -136,12 +139,11 @@ AUI.add(
             */
             addUserToGroup: function(data){
                 var instance = this;
-                
                 if (!instance.isInList(data.skypeId)){
                     var template = A.Handlebars.compile(instance.SKYPE_TEMPLATES.skypeItem),
                     html = template(data);
                     instance.container.one("#users").append(html);
-                    
+                    instance.skypeList.show();
                 } else {
                      new A.Modal(
                       {
@@ -173,10 +175,10 @@ AUI.add(
             */
             getCurrentSkypeUsers: function() {
                 var instance = this,
-                	users = "";
+                	users = [];
                 
                 instance.container.all("#users li").each(function(li){
-                    users += li.getAttribute("skypeId") + ";";
+                    users.push( li.getAttribute("skypeId") );
                 });
                 
                 return users;

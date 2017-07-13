@@ -68,6 +68,7 @@ public interface Constants extends com.liferay.portal.kernel.util.Constants  {
     static final String JSON_USER_EMAIL_ADDRESS = "emailAddress";
 
     static final String JSON_USER_PORTRAIT_URL = "portraitUrl";
+    static final String JSON_USER_PROFILE_URL = "profileURL";
 
     static final String JSON_USER_JOB_TITLE = "jobTitle";
 

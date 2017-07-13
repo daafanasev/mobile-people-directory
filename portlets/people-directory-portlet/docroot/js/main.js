@@ -347,8 +347,6 @@ AUI.add(
                     height: boxHeight,
                     width: boxWidth
                 }, "slow");
-                
-                box.find(".contact-short-info").hide();
             },
 
             slideUp: function (event) {
@@ -379,8 +377,6 @@ AUI.add(
                     height: boxHeight,
                     width: boxWidth
                 }, "slow");
-                
-                box.find(".contact-short-info").show();
                 
             },
             
