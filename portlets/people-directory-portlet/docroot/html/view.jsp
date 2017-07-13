@@ -125,7 +125,7 @@
 				</c:choose>
 				
 				<c:if test="<%= skypeEnabled %>">
-							<div class="skype-users-to-call">
+							<div class="skype-users-to-call" style="display:none">
 								<span class="action-header"><liferay-ui:message key="skype-actions"/></span>
 								<ul id="users">
 								</ul>

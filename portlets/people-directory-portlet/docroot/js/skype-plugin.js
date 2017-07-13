@@ -75,6 +75,9 @@ AUI.add(
                 if (instance.skypeList) {
                 	instance.skypeList.delegate("click", function(){
                 		this.ancestor("li").remove();
+                		if(instance.getCurrentSkypeUsers().length==0){
+                			instance.skypeList.hide();
+                		}
                 	}, ".handle");
                 }
             },
@@ -136,12 +139,11 @@ AUI.add(
             */
             addUserToGroup: function(data){
                 var instance = this;
-                
                 if (!instance.isInList(data.skypeId)){
                     var template = A.Handlebars.compile(instance.SKYPE_TEMPLATES.skypeItem),
                     html = template(data);
                     instance.container.one("#users").append(html);
-                    
+                    instance.skypeList.show();
                 } else {
                      new A.Modal(
                       {
