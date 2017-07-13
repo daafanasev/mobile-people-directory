@@ -222,7 +222,7 @@ dl.profile-description dt {
 		font-size: 20px;
 	}
     
-    span.icon-skype, span.icon-phone {
+    span.icon-skype, span.icon-phone, span.icon-google-plus {
         cursor: pointer;
     }
 }
