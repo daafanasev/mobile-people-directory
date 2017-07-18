@@ -81,6 +81,9 @@ AUI.add(
             },
             
             initSkillSelector: function(params) {
+            	if (A.one(params.contentBox) == null) {
+            		return;
+            	}
             	var instance = this;
             	
             	var resourceURL = Liferay.PortletURL.createResourceURL();
@@ -432,7 +435,7 @@ AUI.add(
         };
     },
     '', {
-        requires: ['node', 'event', 'event-key', 'aui-io-request', 'node-event-simulate', 'handlebars',
+        requires: ['node', 'event', 'event-key', 'aui-io-request-deprecated', 'node-event-simulate', 'handlebars',
             'event-base', 'aui-form-validator', 'liferay-portlet-url', 'json-parse',
             'jquery', 'aui-modal', 'rivet-aui-pagination', 'skype-ui'
         ]
