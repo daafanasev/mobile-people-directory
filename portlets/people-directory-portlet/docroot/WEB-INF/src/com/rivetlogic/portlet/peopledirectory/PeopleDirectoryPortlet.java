@@ -17,6 +17,7 @@
 
 package com.rivetlogic.portlet.peopledirectory;
 
+import com.liferay.portal.kernel.dao.orm.QueryUtil;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.json.JSONArray;
@@ -32,6 +33,10 @@ import com.liferay.portal.service.UserLocalServiceUtil;
 import com.liferay.portal.theme.ThemeDisplay;
 import com.liferay.portal.util.PortalUtil;
 import com.liferay.portal.util.comparator.UserScreenNameComparator;
+import com.liferay.portlet.asset.model.AssetCategory;
+import com.liferay.portlet.asset.model.AssetVocabulary;
+import com.liferay.portlet.asset.service.AssetCategoryLocalServiceUtil;
+import com.liferay.portlet.asset.service.AssetVocabularyServiceUtil;
 import com.liferay.util.bridges.mvc.MVCPortlet;
 import com.rivetlogic.util.Constants;
 import com.rivetlogic.util.PeopleDirectoryUtil;
@@ -168,9 +173,11 @@ public class PeopleDirectoryPortlet extends MVCPortlet {
         long userId = ParamUtil.getLong(request, Constants.PARAMETER_USER_ID);
         PortletPreferences preferences = request.getPreferences();
         boolean skillsEnabled = GetterUtil.getBoolean(preferences.getValue(Constants.SKILLS_INTEGRATION, PropsValues.SKILLS_INTEGRATION));
-        
+        long vocabularyId = GetterUtil.getLong(preferences.getValue(Constants.ORG_TEAM_VOCABULARY, PropsValues.ORG_TEAM_VOCABULARY));
+
         try {
             User user = UserLocalServiceUtil.getUser(userId);
+
             JSONObject jsonUser = JSONFactoryUtil.createJSONObject();
             jsonUser.put(Constants.JSON_USER_JOB_TITLE, user.getJobTitle());
             jsonUser.put(Constants.JSON_USER_SCREEN_NAME, user.getScreenName());
@@ -178,7 +185,29 @@ public class PeopleDirectoryPortlet extends MVCPortlet {
             jsonUser.put(Constants.JSON_USER_CITY, PeopleDirectoryUtil.getCityField(user));
             jsonUser.put(Constants.JSON_USER_PHONE, PeopleDirectoryUtil.getPhoneField(user));
             jsonUser.put(Constants.JSON_USER_SKYPE_NAME, user.getContact().getSkypeSn());
-            
+
+            if(vocabularyId > 0) {
+                AssetVocabulary vocabulary = AssetVocabularyServiceUtil.getVocabulary(vocabularyId);
+                List<AssetCategory> vocabularyCategories =
+                        AssetCategoryLocalServiceUtil.getVocabularyCategories(
+                                vocabularyId, QueryUtil.ALL_POS, QueryUtil.ALL_POS, null);
+
+                List<AssetCategory> userCategories =
+                        AssetCategoryLocalServiceUtil.getCategories(User.class.getName(),user.getUserId());
+
+
+                String userOrgCategoryName = "";
+                for(AssetCategory userCategory : userCategories){
+                    if(vocabularyCategories.contains(userCategory)){
+                        userOrgCategoryName = userCategory.getName();
+                    }
+                }
+
+                jsonUser.put(Constants.JSON_USER_ORG_VOCABULARY, vocabulary.getName());
+                if(!userCategories.isEmpty())
+                jsonUser.put(Constants.JSON_USER_ORG_CATEGORY, userOrgCategoryName);
+            }
+
             if(skillsEnabled) {
                 JSONArray jsonSkills = getSkillsArray(user);
                 jsonUser.put(Constants.JSON_SKILLS_ARRAY, jsonSkills);

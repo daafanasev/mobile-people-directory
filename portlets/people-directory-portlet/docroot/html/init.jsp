@@ -47,15 +47,21 @@
 <%@ page import="com.liferay.portal.kernel.util.HtmlUtil"%>
 <%@ page import="com.liferay.portal.NoSuchUserException"%>
 <%@ page import="com.liferay.portal.kernel.util.WebKeys" %>
+<%@ page import="com.liferay.portal.kernel.util.ArrayUtil" %>
+<%@ page import="com.liferay.portlet.asset.model.AssetVocabulary" %>
+<%@ page import="com.liferay.portlet.asset.service.AssetVocabularyServiceUtil" %>
 
 <%@ page import="com.rivetlogic.util.comparator.CustomComparatorUtil"%>
 <%@ page import="com.rivetlogic.util.PeopleDirectoryUtil"%>
 <%@ page import="com.rivetlogic.util.Constants"%>
 <%@ page import="com.rivetlogic.util.PropsValues"%>
 
+<%@ page import="java.util.List" %>
+<%@ page import="java.util.ArrayList" %>
 <%@ page import="java.util.LinkedHashMap"%>
 <%@ page import="javax.portlet.PortletPreferences"%>
 <%@ page import="javax.portlet.PortletURL"%>
+
 
 <portlet:defineObjects />
 <liferay-theme:defineObjects />
@@ -64,8 +70,13 @@
 String currentURL = PortalUtil.getCurrentURL(renderRequest);
 PortletPreferences preferences = renderRequest.getPreferences();
 
+long orgTeamVocabularyId = GetterUtil.getLong(preferences.getValue(Constants.ORG_TEAM_VOCABULARY, PropsValues.ORG_TEAM_VOCABULARY));
 int searchResultsPerPage = GetterUtil.getInteger(preferences.getValue(Constants.PREFERENCE_SEARCH_RESULTS_PER_PAGE, PropsValues.DEFAULT_RECORD_COUNT));
 int viewAllResultsPerPage = GetterUtil.getInteger(preferences.getValue(Constants.PREFERENCE_VIEW_ALL_RESULTS_PER_PAGE, PropsValues.DEFAULT_RECORD_COUNT));
+boolean displayJobTitle = GetterUtil.getBoolean(preferences.getValue(Constants.DISPLAY_USER_JOB_TITLE, PropsValues.DISPLAY_USER_JOB_TITLE), true);
+boolean displayScreenName = GetterUtil.getBoolean(preferences.getValue(Constants.DISPLAY_USER_SCREEN_NAME, PropsValues.DISPLAY_USER_SCREEN_NAME), true);
+boolean displayCity = GetterUtil.getBoolean(preferences.getValue(Constants.DISPLAY_USER_CITY, PropsValues.DISPLAY_USER_CITY), true);
+boolean displayPhone = GetterUtil.getBoolean(preferences.getValue(Constants.DISPLAY_USER_PHONE, PropsValues.DISPLAY_USER_PHONE), true);
 boolean skypeEnabled = GetterUtil.getBoolean(preferences.getValue(Constants.SKYPE_INTEGRATION, PropsValues.SKYPE_ENABLED));
 boolean hangoutsEnabled = GetterUtil.getBoolean(preferences.getValue(Constants.HANGOUTS_INTEGRATION, PropsValues.HANGOUTS_INTEGRATION));
 boolean skillsEnabled = GetterUtil.getBoolean(preferences.getValue(Constants.SKILLS_INTEGRATION, PropsValues.SKILLS_INTEGRATION));
