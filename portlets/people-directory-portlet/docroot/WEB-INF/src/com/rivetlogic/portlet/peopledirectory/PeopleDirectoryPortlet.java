@@ -204,8 +204,9 @@ public class PeopleDirectoryPortlet extends MVCPortlet {
                 }
 
                 jsonUser.put(Constants.JSON_USER_ORG_VOCABULARY, vocabulary.getName());
-                if(!userCategories.isEmpty())
-                jsonUser.put(Constants.JSON_USER_ORG_CATEGORY, userOrgCategoryName);
+                if(!userCategories.isEmpty()){
+                    jsonUser.put(Constants.JSON_USER_ORG_CATEGORY, userOrgCategoryName);
+                }
             }
 
             if(skillsEnabled) {
