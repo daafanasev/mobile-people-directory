@@ -19,11 +19,21 @@ package com.rivetlogic.util;
 
 public class PropsKeys {
 
+    public static final String ORG_TEAM_VOCABULARY = "peopledirectory.org.team.vocabulary";
+
 	public static final String MAX_SEARCH_ITEMS = "peopledirectory.max.search.items";
 	
 	public static final String DEFAULT_RECORD_COUNT = "peopledirectory.default.record.count";
-	
-	public static final String SKYPE_ENABLED = "peopledirectory.skype.enabled";
+
+    public static final String DISPLAY_USER_JOB_TITLE = "peopledirectory.display.job.title";
+
+    public static final String DISPLAY_USER_SCREEN_NAME = "peopledirectory.display.screen.name";
+
+    public static final String DISPLAY_USER_CITY = "peopledirectory.display.city";
+
+    public static final String DISPLAY_USER_PHONE = "peopledirectory.display.phone";
+
+    public static final String SKYPE_ENABLED = "peopledirectory.skype.enabled";
 	
 	public static final String HANGOUTS_INTEGRATION = "peopledirectory.hangouts.enabled";
 	

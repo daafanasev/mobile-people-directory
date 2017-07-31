@@ -33,6 +33,7 @@ try {
 
 String backURL = ParamUtil.getString(request, Constants.BACK_URL);
 String imageId = userId + "-picture";
+String title = "<a href=\""+userSelected.getDisplayURL(themeDisplay)+"\">"+HtmlUtil.escape(userSelected.getFullName())+"</a>";
 %>
 
 <liferay-ui:error exception="<%= NoSuchUserException.class %>" message="user-could-not-be-found"/>
@@ -40,9 +41,9 @@ String imageId = userId + "-picture";
 <c:if test="<%= Validator.isNotNull(userSelected) %>">
 	<article id="articleView">
         
-        <liferay-ui:header cssClass="profile-info-title" backURL="<%=backURL%>" title="<%=HtmlUtil.escape(userSelected.getFullName())%>"/>
+        <liferay-ui:header cssClass="profile-info-title" backURL="<%=backURL%>" escapeXml="false" title="<%=title%>"/>
         		
-		<img src="<%=userSelected.getPortraitURL(themeDisplay)%>" height="55" width="60" id="<%=imageId %>" alt="<%= HtmlUtil.escapeAttribute(userSelected.getFullName()) %>" />
+		<a href="<%=userSelected.getDisplayURL(themeDisplay)%>"><img src="<%=userSelected.getPortraitURL(themeDisplay)%>" height="55" width="60" id="<%=imageId %>" alt="<%= HtmlUtil.escapeAttribute(userSelected.getFullName()) %>" /></a>
         
       	<dl class="profile-description">
 			<dt><liferay-ui:message key="job-title" />:</dt>

@@ -19,15 +19,57 @@
 
 <%@ include file="init.jsp"%>
 
+<%
+long[] groupIds = {};
+
+Group siteGroup = themeDisplay.getSiteGroup();
+
+if (ArrayUtil.isEmpty(groupIds)) {
+	groupIds = new long[] {siteGroup.getGroupId()};
+}
+
+if (!ArrayUtil.contains(groupIds, themeDisplay.getCompanyGroupId())) {
+	groupIds = ArrayUtil.append(groupIds, themeDisplay.getCompanyGroupId());
+}
+
+groupIds = ArrayUtil.unique(groupIds);
+
+List<AssetVocabulary> vocabularies = new ArrayList<AssetVocabulary>();
+
+for (int i = 0; i < groupIds.length; i++) {
+	vocabularies.addAll(AssetVocabularyServiceUtil.getGroupVocabularies(groupIds[i], false));
+}
+
+%>
+
 <liferay-portlet:actionURL portletConfiguration="true" var="configurationURL" />
 <div class="configuration">
 	<aui:form action="<%=configurationURL%>" method="post" name="fm">
- 	   <aui:input name="<%=Constants.CMD%>" type="hidden" value="<%=Constants.UPDATE%>" />
-	    <aui:fieldset label="label.search.container">
-	        <aui:input name="<%= Constants.PARAMETER_VIEW_ALL_RESULTS_PER_PAGE%>" label="view-all-results-per-page" value='<%=viewAllResultsPerPage%>' />
+        <aui:input name="<%=Constants.CMD%>" type="hidden" value="<%=Constants.UPDATE%>" />
+        <aui:fieldset label="label.search.container">
+            <aui:select label="org-team-vocabulary" name="<%= Constants.ORG_TEAM_VOCABULARY%>" showEmptyOption="true" >
+            <%
+            for (AssetVocabulary vocabulary : vocabularies) {
+            %>
+
+                <aui:option selected="<%= orgTeamVocabularyId == vocabulary.getVocabularyId() %>" value="<%= vocabulary.getVocabularyId() %>"><%= vocabulary.getName() %></aui:option>
+
+            <%
+            }
+            %>
+            </aui:select>
+
+
+
+            <aui:input name="<%= Constants.PARAMETER_VIEW_ALL_RESULTS_PER_PAGE%>" label="view-all-results-per-page" value='<%=viewAllResultsPerPage%>' />
 			<aui:input name="<%= Constants.PARAMETER_SEARCH_RESULTS_PER_PAGE%>" label="search-results-per-page" type="text" value="<%=searchResultsPerPage%>"/>
 			<aui:input name="<%= Constants.SKYPE_INTEGRATION%>" label="skype-integrated" type="checkbox" value="<%= skypeEnabled %>"/>
 			<aui:input name="<%= Constants.HANGOUTS_INTEGRATION%>" label="hangouts-integrated" type="checkbox" value="<%= hangoutsEnabled %>"/>
+
+			<aui:input name="<%= Constants.DISPLAY_USER_JOB_TITLE %>" label="display-job-title" type="checkbox" value="<%= displayJobTitle %>"/>
+			<aui:input name="<%= Constants.DISPLAY_USER_SCREEN_NAME %>" label="display-screen-name" type="checkbox" value="<%= displayScreenName %>"/>
+			<aui:input name="<%= Constants.DISPLAY_USER_CITY %>" label="display-city" type="checkbox" value="<%= displayCity %>"/>
+			<aui:input name="<%= Constants.DISPLAY_USER_PHONE %>" label="display-phone" type="checkbox" value="<%= displayPhone %>"/>
 			<aui:input name="<%= Constants.SKILLS_INTEGRATION %>" label="skills-integrated" type="checkbox" value="<%= skillsEnabled %>"/>
 	 </aui:fieldset>
 			<aui:button type="submit" />

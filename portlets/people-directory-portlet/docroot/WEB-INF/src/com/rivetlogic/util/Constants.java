@@ -64,18 +64,27 @@ public interface Constants extends com.liferay.portal.kernel.util.Constants  {
     static final String JSON_USER_FULL_NAME = "fullName";
 
     static final String JSON_USER_SCREEN_NAME = "screenName";
+    static final String DISPLAY_USER_SCREEN_NAME = "displayScreenName";
 
     static final String JSON_USER_EMAIL_ADDRESS = "emailAddress";
 
     static final String JSON_USER_PORTRAIT_URL = "portraitUrl";
+    static final String JSON_USER_PROFILE_URL = "profileURL";
+
+    static final String JSON_USER_ORG_VOCABULARY = "orgVocabularyName";
+    static final String JSON_USER_ORG_CATEGORY = "orgCategoryName";
 
     static final String JSON_USER_JOB_TITLE = "jobTitle";
+    static final String DISPLAY_USER_JOB_TITLE = "displayJobTitle";
 
     static final String JSON_USER_DOB = "dob";
+    static final String DISPLAY_USER_DOB = "displayDob";
 
     static final String JSON_USER_CITY = "city";
+    static final String DISPLAY_USER_CITY = "displayCity";
 
     static final String JSON_USER_PHONE = "phone";
+    static final String DISPLAY_USER_PHONE = "displayPhone";
     
     static final String JSON_USER_SKYPE_NAME = "skypeName";
 
@@ -90,6 +99,8 @@ public interface Constants extends com.liferay.portal.kernel.util.Constants  {
     static final String BACK_URL = "backURL";
     
     static final String PORTLET_RESOURCE = "portletResource";
+
+    static final String ORG_TEAM_VOCABULARY = "orgTeamVocabulary";
     
     static final String PREFERENCE_VIEW_ALL_RESULTS_PER_PAGE = "VIEW_ALL_RESULTS_PER_PAGE";
     
