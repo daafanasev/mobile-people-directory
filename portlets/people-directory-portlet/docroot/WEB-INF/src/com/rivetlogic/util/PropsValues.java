@@ -21,9 +21,19 @@ import com.liferay.portal.kernel.util.PropsUtil;
 
 public class PropsValues {
 
+    public static final String ORG_TEAM_VOCABULARY = PropsUtil.get(PropsKeys.ORG_TEAM_VOCABULARY);
+
 	public static final String MAX_SEARCH_ITEMS = PropsUtil.get(PropsKeys.MAX_SEARCH_ITEMS);
 	
 	public static final String DEFAULT_RECORD_COUNT = PropsUtil.get(PropsKeys.DEFAULT_RECORD_COUNT);
+
+    public static final String DISPLAY_USER_JOB_TITLE = PropsUtil.get(PropsKeys.DISPLAY_USER_JOB_TITLE);
+
+    public static final String DISPLAY_USER_SCREEN_NAME = PropsUtil.get(PropsKeys.DISPLAY_USER_SCREEN_NAME);
+
+    public static final String DISPLAY_USER_CITY = PropsUtil.get(PropsKeys.DISPLAY_USER_CITY);
+
+    public static final String DISPLAY_USER_PHONE = PropsUtil.get(PropsKeys.DISPLAY_USER_PHONE);
 	
 	public static final String SKYPE_ENABLED = PropsUtil.get(PropsKeys.SKYPE_ENABLED);
 	

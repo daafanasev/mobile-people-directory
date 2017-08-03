@@ -44,10 +44,20 @@ public class ConfigurationActionImpl extends DefaultConfigurationAction {
         
         String cmd = ParamUtil.getString(actionRequest, Constants.CMD);
         if (cmd.equals(Constants.UPDATE)) {
+            setPreference(actionRequest, Constants.ORG_TEAM_VOCABULARY,
+                    ParamUtil.getString(actionRequest, Constants.ORG_TEAM_VOCABULARY));
             setPreference(actionRequest, Constants.PREFERENCE_VIEW_ALL_RESULTS_PER_PAGE,
                     ParamUtil.getString(actionRequest, Constants.PARAMETER_VIEW_ALL_RESULTS_PER_PAGE));
             setPreference(actionRequest, Constants.PREFERENCE_SEARCH_RESULTS_PER_PAGE,
                     ParamUtil.getString(actionRequest, Constants.PARAMETER_SEARCH_RESULTS_PER_PAGE));
+            setPreference(actionRequest, Constants.DISPLAY_USER_JOB_TITLE,
+                    ParamUtil.getString(actionRequest, Constants.DISPLAY_USER_JOB_TITLE));
+            setPreference(actionRequest, Constants.DISPLAY_USER_SCREEN_NAME,
+                    ParamUtil.getString(actionRequest, Constants.DISPLAY_USER_SCREEN_NAME));
+            setPreference(actionRequest, Constants.DISPLAY_USER_CITY,
+                    ParamUtil.getString(actionRequest, Constants.DISPLAY_USER_CITY));
+            setPreference(actionRequest, Constants.DISPLAY_USER_PHONE,
+                    ParamUtil.getString(actionRequest, Constants.DISPLAY_USER_PHONE));
             setPreference(actionRequest, Constants.SKYPE_INTEGRATION,
                 ParamUtil.getString(actionRequest, Constants.SKYPE_INTEGRATION));
             setPreference(actionRequest, Constants.HANGOUTS_INTEGRATION,
