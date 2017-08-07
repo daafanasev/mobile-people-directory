@@ -204,7 +204,7 @@ AUI.add(
         };
     },
     '', {
-        requires: ['node', 'event', 'event-key', 'aui-io-request', 'node-event-simulate', 'handlebars',
+        requires: ['node', 'event', 'event-key', 'aui-io-request-deprecated', 'node-event-simulate', 'handlebars',
             'event-base', 'aui-modal'
         ]
     }
