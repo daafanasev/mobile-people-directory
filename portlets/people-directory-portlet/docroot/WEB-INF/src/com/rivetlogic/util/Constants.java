@@ -37,6 +37,8 @@ public interface Constants extends com.liferay.portal.kernel.util.Constants  {
 
     static final String LOG_KEYWORD_SEARCH_ERROR = "Error while performing keyword search";
 
+    static final String LOG_ORG_TEAM_CATEGORY_ERROR = "Error retrieving Org team category Name";
+
     static final String LOG_RETURNING_JSON_ERROR = "Error while returning json";
 
     static final String DOB_FORMAT = "MMM d, yyyy";

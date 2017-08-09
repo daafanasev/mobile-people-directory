@@ -83,7 +83,7 @@ public class PeopleDirectoryUtil {
                 }
             }
         } catch (SystemException e) {
-            _log.error(Constants.LOG_COMPLETE_PROFILE_SEARCH_ERROR, e);
+            _log.error(Constants.LOG_ORG_TEAM_CATEGORY_ERROR, e);
         }
 
         return userOrgCategoryName;
