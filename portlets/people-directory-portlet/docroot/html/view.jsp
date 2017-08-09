@@ -105,15 +105,31 @@
 									<liferay-ui:search-container-column-text name="email"
 										property="emailAddress" orderable="true"
 										orderableProperty="<%= CustomComparatorUtil.COLUMN_EMAIL_ADDRESS %>" href='<%="mailto:"+user.getEmailAddress()%>' />
-						
-									<liferay-ui:search-container-column-text name="job-title"
-										property="jobTitle" orderable="true" orderableProperty="<%= CustomComparatorUtil.COLUMN_JOB_TITLE %>"
-										href='<%=columnHref%>' />
-						
-									<liferay-ui:search-container-column-text name="<%= CustomComparatorUtil.COLUMN_CITY %>">
-										<%=PeopleDirectoryUtil.getCityField(user)%>
-									</liferay-ui:search-container-column-text>
-									<liferay-ui:search-container-column-jsp name="<%= CustomComparatorUtil.COLUMN_PHONE %>" path="/html/include/phone_with_skype.jsp" />
+
+                                    <c:if test="<%= orgTeamVocabularyId > 0 %>">
+                                        <%
+                                        AssetVocabulary vocabulary = AssetVocabularyServiceUtil.getVocabulary(orgTeamVocabularyId);
+                                        %>
+                                        <liferay-ui:search-container-column-text name="<%=vocabulary.getName()%>">
+                                            <%=PeopleDirectoryUtil.getOrgTeamCategoryName(user,orgTeamVocabularyId)%>
+                                        </liferay-ui:search-container-column-text>
+                                    </c:if>
+
+						            <c:if test="<%= displayJobTitle %>">
+                                        <liferay-ui:search-container-column-text name="job-title"
+                                            property="jobTitle" orderable="true" orderableProperty="<%= CustomComparatorUtil.COLUMN_JOB_TITLE %>"
+                                            href='<%=columnHref%>' />
+                                    </c:if>
+
+						            <c:if test="<%= displayCity %>">
+                                        <liferay-ui:search-container-column-text name="<%= CustomComparatorUtil.COLUMN_CITY %>">
+                                            <%=PeopleDirectoryUtil.getCityField(user)%>
+                                        </liferay-ui:search-container-column-text>
+                                    </c:if>
+
+                                    <c:if test="<%= displayPhone %>">
+									    <liferay-ui:search-container-column-jsp name="<%= CustomComparatorUtil.COLUMN_PHONE %>" path="/html/include/phone_with_skype.jsp" />
+                                    </c:if>
 					
 								</liferay-ui:search-container-row>
 						

@@ -46,20 +46,36 @@ String title = "<a href=\""+userSelected.getDisplayURL(themeDisplay)+"\">"+HtmlU
 		<a href="<%=userSelected.getDisplayURL(themeDisplay)%>"><img src="<%=userSelected.getPortraitURL(themeDisplay)%>" height="55" width="60" id="<%=imageId %>" alt="<%= HtmlUtil.escapeAttribute(userSelected.getFullName()) %>" /></a>
         
       	<dl class="profile-description">
-			<dt><liferay-ui:message key="job-title" />:</dt>
-			<dd><%= HtmlUtil.escape(userSelected.getJobTitle()) %></dd>
-			
-			<dt><liferay-ui:message key="screen-name" />:</dt>
-			<dd><%= HtmlUtil.escape(userSelected.getScreenName()) %></dd>
+      	    <c:if test="<%= orgTeamVocabularyId > 0 %>">
+      	        <%
+      	        AssetVocabulary vocabulary = AssetVocabularyServiceUtil.getVocabulary(orgTeamVocabularyId);
+      	        %>
+      	        <dt><%=vocabulary.getName()%>:</dt>
+      	        <dd><%= HtmlUtil.escape(PeopleDirectoryUtil.getOrgTeamCategoryName(userSelected,orgTeamVocabularyId)) %></dd>
+            </c:if>
+
+      	    <c:if test="<%= displayJobTitle %>">
+                <dt><liferay-ui:message key="job-title" />:</dt>
+                <dd><%= HtmlUtil.escape(userSelected.getJobTitle()) %></dd>
+            </c:if>
+
+			<c:if test="<%= displayScreenName %>">
+                <dt><liferay-ui:message key="screen-name" />:</dt>
+                <dd><%= HtmlUtil.escape(userSelected.getScreenName()) %></dd>
+            </c:if>
 			
 			<dt><liferay-ui:message key="email" />:</dt>
 			<dd><%= HtmlUtil.escape(userSelected.getEmailAddress()) %></dd>
-			
-			<dt><liferay-ui:message key="city" />:</dt>
-			<dd><%= PeopleDirectoryUtil.getCityField(userSelected)%></dd>
-			
-			<dt><liferay-ui:message key="phone" />:</dt>
-			<dd><%= PeopleDirectoryUtil.getPhoneField(userSelected)%></dd>
+
+			<c:if test="<%= displayCity %>">
+                <dt><liferay-ui:message key="city" />:</dt>
+                <dd><%= PeopleDirectoryUtil.getCityField(userSelected)%></dd>
+			</c:if>
+
+			<c:if test="<%= displayPhone %>">
+                <dt><liferay-ui:message key="phone" />:</dt>
+                <dd><%= PeopleDirectoryUtil.getPhoneField(userSelected)%></dd>
+            </c:if>
 			
 			<dt><liferay-ui:message key="skype" />:</dt>
 			<dd><%= userSelected.getContact().getSkypeSn()%></dd>

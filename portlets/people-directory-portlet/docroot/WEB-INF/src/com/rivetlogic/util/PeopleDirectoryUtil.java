@@ -18,14 +18,18 @@
 package com.rivetlogic.util;
 
 import com.liferay.portal.kernel.dao.orm.CustomSQLParam;
+import com.liferay.portal.kernel.dao.orm.QueryUtil;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.model.User;
+import com.liferay.portlet.asset.model.AssetCategory;
+import com.liferay.portlet.asset.service.AssetCategoryLocalServiceUtil;
 import com.rivetlogic.portlet.peopledirectory.PeopleDirectoryPortlet;
 
 import java.util.LinkedHashMap;
+import java.util.List;
 
 /**
  * The Class PeopleDirectoryUtil.
@@ -59,6 +63,30 @@ public class PeopleDirectoryUtil {
             _log.error("Error while looking for user phone field", e);
         }
         return phoneStr;
+    }
+
+    public static String getOrgTeamCategoryName(User user, long orgVocabularyId) {
+
+        String userOrgCategoryName = "";
+
+        try{
+            List<AssetCategory> vocabularyCategories =
+                    AssetCategoryLocalServiceUtil.getVocabularyCategories(
+                            orgVocabularyId, QueryUtil.ALL_POS, QueryUtil.ALL_POS, null);
+
+            List<AssetCategory> userCategories =
+                    AssetCategoryLocalServiceUtil.getCategories(User.class.getName(),user.getUserId());
+
+            for(AssetCategory userCategory : userCategories){
+                if(vocabularyCategories.contains(userCategory)){
+                    userOrgCategoryName = userCategory.getName();
+                }
+            }
+        } catch (SystemException e) {
+            _log.error(Constants.LOG_COMPLETE_PROFILE_SEARCH_ERROR, e);
+        }
+
+        return userOrgCategoryName;
     }
     
     /**
