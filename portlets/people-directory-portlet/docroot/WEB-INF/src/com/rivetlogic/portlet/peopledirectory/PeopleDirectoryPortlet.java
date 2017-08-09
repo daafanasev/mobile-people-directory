@@ -188,25 +188,10 @@ public class PeopleDirectoryPortlet extends MVCPortlet {
 
             if(vocabularyId > 0) {
                 AssetVocabulary vocabulary = AssetVocabularyServiceUtil.getVocabulary(vocabularyId);
-                List<AssetCategory> vocabularyCategories =
-                        AssetCategoryLocalServiceUtil.getVocabularyCategories(
-                                vocabularyId, QueryUtil.ALL_POS, QueryUtil.ALL_POS, null);
-
-                List<AssetCategory> userCategories =
-                        AssetCategoryLocalServiceUtil.getCategories(User.class.getName(),user.getUserId());
-
-
-                String userOrgCategoryName = "";
-                for(AssetCategory userCategory : userCategories){
-                    if(vocabularyCategories.contains(userCategory)){
-                        userOrgCategoryName = userCategory.getName();
-                    }
-                }
+                String userOrgCategoryName = PeopleDirectoryUtil.getOrgTeamCategoryName(user,vocabularyId);
 
                 jsonUser.put(Constants.JSON_USER_ORG_VOCABULARY, vocabulary.getName());
-                if(!userCategories.isEmpty()){
-                    jsonUser.put(Constants.JSON_USER_ORG_CATEGORY, userOrgCategoryName);
-                }
+                jsonUser.put(Constants.JSON_USER_ORG_CATEGORY, userOrgCategoryName);
             }
 
             if(skillsEnabled) {
