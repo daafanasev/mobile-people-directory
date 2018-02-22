@@ -1,361 +1,73 @@
 @import url(main_responsive.css);
 
-
-.people-directory-portlet .results {
-    float: none;
-    margin: 0;
-    border: none;
-}
-
-.people-directory-portlet .button-holder button i {
-    background: none !important;
-}
-
-.people-directory-portlet .toggle-search-type:after {
-    content: ' »';
-}
-
-.people-directory-portlet  .search-criteria {
-  margin-bottom: 30px;
-}
-
-.people-directory-portlet  .search-criteria .control-group {
-  margin: 0;
-}
-
-.tagselector-content {
-  margin-bottom: 5px;
-}
-
-#people-directory-container {
-    border: 1px solid #C3C3C3;
-    border-radius: 10px 10px 0px 0px;
-    background: #E3E3E3;
-    color: #5D5D5D;
-    padding: 10px;
-}
-
-input.simple-search-keywords {
-    width: 100%;
-    box-sizing: border-box;
-}
-
-.business-card {
-    border:2px solid #a1a1a1;
-    padding:10px 40px;
-    width:300px;
-    border-radius:25px;
-    margin-bottom: 15px;
-}
-
-.business-card .full-name{
-    font-size: 15px;
-    font-weight: bold;
-}
-
-.business-card .job-title{
-    font-size: 15px;
-}
-
-.business-card .email-address{
-    text-decoration: underline;
-}
-
-.small-profile-box {
-	display: none;
-    position: relative;
-	width: 95%;
-	background-color: white;
-	display: block;
-	border: 1px solid #5D5D5D;
-    border-radius: 3px;
-    padding: 2%;
-    margin: 10px 0;
-}
-
-.small-photo-box {
-	-moz-box-shadow: 0 0 2px 2px #888;
-	-webkit-box-shadow: 0 0 2px 2px#888;
-	box-shadow: 0 0 2px 2px #888;
-	width: 55px;
-	margin-left: 5px;
-	float: left;
-}
-
-.field-value, .profile-description dt {
-	font-size: 15px;
-	font-weight: bold;
-	letter-spacing: 0;
-	text-shadow: 1px 1px 1px #FFFFFF;
-	font-family: 'Rokkitt',serif;
-    display: block;
-    width: calc(100% - 25px);
-    padding-left: 10px;
-    float: left;
-}
-
-.mail.field-value {
-	word-wrap: break-word;
-}
-
-.slide-up,
-.slide-down {
-    position: absolute;
-    top: 2px;
-    right: 2px;    
-}
-
-.slide-up {
-	background: url("../images/minus.png") no-repeat scroll 0 0 transparent;
-	width: 25px;
-	height: 37px;
-}
-
-.slide-down {
-	background: url("../images/plus.png") no-repeat scroll 0 0 transparent;
-	width: 25px;
-	height: 37px;
-}
-
-.profile-box {
-	width: 100%;
-	height: 245px;
-	background-color: #DABD95;
-    background-position: center bottom, left top;
-    background-repeat: repeat-x;
-    overflow: hidden;
-    display: block;
-    vertical-align: baseline;
-    border: 1px solid #522F1D;
-    border-radius: 3px;
-}
-
-.profile-box {
-	width: 100%;
-	height: 245px;
-	background-color: #DABD95;
-    background-position: center bottom, left top;
-    background-repeat: repeat-x;
-    overflow: hidden;
-    display: block;
-    vertical-align: baseline;
-    border: 1px solid #522F1D;
-    border-radius: 3px;
-}
-
-.about {
-    float: left;
-    margin-left: 20px;
-    margin-top: 30px;
-    width: 376px;
-}
-
-.profile-box .photo-inner {
-    background: url("http://rbista.com/demos/zwin/images/photo-inner.png") no-repeat scroll 0 0 transparent;
-    float: left;
-    height: 212px;
-    padding: 12px 0 0 20px;
-    width: 164px;
-}
-.profile-box .photo-inner img {
-    background-color: #FFFFFF;
-}
-.profile-box h1 {
-    color: #FFFFFF;
-    line-height: 1px;
-    margin-top: 12px;
-}
-.profile-box h3 {
-    color: #FFFFFF;
-    font-size: 13px;
-    line-height: 0px;
-    margin-top: -3px;
-}
-
-.profile-info-table {
-	border: 0;
-	cellpadding: 0;
-	cellspacing: 0; 
-    
-    .field-value {
-        width: 90%;
-    }
-    
-    .info {
-        word-break: break-word;
-    }
-    
-}
-
-.more-info {
-    float: left;
-    width: 60%;
-    padding: 5px;
-    .more-info-title  {
-    	border-radius: 9px 9px 9px 9px;
-    	padding-right: 10px;
+.people-directory-portlet {
+	.portlet-body {
+		min-height: 300px;
 	}
-	
-	.icon {
-		margin-left: 10px;
+	* {
+		box-sizing: border-box;
 	}
-}
-
-dl.profile-description {
-	overflow: hidden;
-}
-
-dl.profile-description dd, dl.profile-description dt {
-	float: left;
-}
-
-dl.profile-description dt {
-	clear: left;
-	padding: 0 0 10px;
-	width: 100px;
-}
-
-.brief-wrapper {
-    float: left;
-    width: 65%;
-    padding-left: 5px;
-}
-
-.summary-box{
-    
-	span.icon {
-		font-size: 20px;
+	.label {
+		padding: 0 3px 0 0;
+		font-size: 11px;
+		font-weight: normal;
+		line-height: 14px;
+		color: inherit;
+		vertical-align: baseline;
+		white-space: nowrap;
+		text-shadow: none;
+		background-color: transparent;
 	}
-    
-    span.icon-skype, span.icon-phone, span.icon-google-plus {
-        cursor: pointer;
-    }
-}
-
-#articleView img {
-	-moz-border-radius: 5px;
-	-webkit-border-radius: 5px;
-	border-radius: 5px;
-	border: 1px solid #CCC;
-	float:left;
-	margin: 0 10px 10px 0;
-	padding: 4px;
-	width:150px;	
-}
-
-#articleView .article-body {
-	margin-top: 4px;
-}
-
-#articleView {
-	padding:15px;
-	margin-bottom: -25px;
-	position:relative;
-}
-#articleView h1 {
-	font-size: 1.4em;
-	margin-top: 0;
-	margin-bottom: 10px;
-}
-#articleView h2 {
-	font-size: 13px;
-	font-weight: bold;
-	margin-top: 0;
-}
-#articleView h3 {
-	font-size: 11px;
-	font-weight: normal;
-	margin-top: 0;
-}
-#articleView h4 {
-    padding-bottom: 20px;
-}
-#articleView ul, ol {
-	list-style-position: inside;
-}
-#articleView .article-content {
-position:relative;
-}
-#articleView .article-body {
-margin-top: 10px;
-}
-
-#articleView .profile-info-title {
-    border: none;
-}
-
-#articleView .profile-info-title h3.header-title {
-    font-weight: bold;
-    font-size: 18px;
-}
-
-#articleView .profile-info {
-    float: left;
-}
-
-#articleView .profile-info span {
-    display: block;
-    padding-bottom: 20px;
-}
-
-#articleView .profile-info label {
-    display: inline;
-    font-weight: bold;
-}
-
-#articleView .clearfix {
-    width: 100%;
-}
-
-.back-link {
-	background: #727C81;
-	margin: -24px 0 0 -24px;
-    padding: 9px 24px 28px;
-    width: 100%;
-}
-
-
-.back-link-url a {
-	float: right;
-	text-decoration: none;
-	font-family: helvetica;
-    font-size: 11px;
-    font-style: normal;
-    font-weight: bold;
-    text-decoration: none;
-    margin-top: 5px;
-    color: #FFFFFF;
-}
-
-
-.configuration{
-	margin-top: -28px;
-}
-
-.pagination {
-	text-align: center;
-}
-
-.paginator-link.paginator-page-link {
-	width: 25px;
-	margin: 2px;
-	text-align: center;
-}
-
-.paginator-link.paginator-page-link.paginator-current-page {
-	color: #FFF;
-}
-
-#people-directory-container select.paginator-rows-per-page {
-	display: none;
-}
-
-div.people-directory-portlet {
-    .small-profile-box {  
-    	.clearfix {
-        	width: 100%;
+	.loader {
+		text-align: center;
+		margin: 70px 0;
+	}
+	.results {
+		float: none;
+		margin: 0;
+		border: none;
+	}
+	.button-holder button i {
+		background: none !important;
+	}
+	.toggle-search-type:after {
+		content: ' »';
+	}
+	.search-criteria {
+		margin-bottom: 30px;
+	}
+	.search-criteria .control-group {
+		margin: 0;
+	}
+	.small-profile-box {
+		display: block;
+		min-height: 70px;
+		margin: 20px 0 20px 0;
+		padding: 30px 0 30px 80px;
+		position: relative;
+		border-bottom: 1px solid #CCC;
+		.small-photo-box {
+			display: block;
+			width: 70px;
+			float: left;
+			position: absolute;
+			top: 10px;
+			left: 0;
+			border-radius: 50%;
+			overflow: hidden;
+			a {
+				display: block;
+				width: 70px;
+				height: 70px;
+				background-size: cover;
+				img {
+					display: none;
+				}
+			}
 		}
-		
+		.clearfix {
+			width: 100%;
+		}
 		.contact-short-info {
 			overflow: hidden;
 			padding: 5px 12px;
@@ -364,11 +76,388 @@ div.people-directory-portlet {
 				margin: 0 5px 0 0;
 			}		
 		}
+		.brief-wrapper {
+			width: 100%;
+			padding-left: 5px;
+			float: left;
+		}
+		.summary-box {
+			span.icon {
+				font-size: 20px;
+			}
+			span.icon-skype,
+			span.icon-phone,
+			span.icon-google-plus {
+				cursor: pointer;
+			}
+		}
+		.more-info {
+			width: 100%;
+			padding: 5px;
+			float: left;
+			font-size: 12px;
+			.more-info-title  {
+				font-weight: bold;
+				font-size: 12px;
+			}	
+			.icon {
+				margin-left: 10px;
+			}
+		}
+		.slide-up,
+		.slide-down {
+			display: none;
+			position: absolute;
+			top: 2px;
+			right: 2px; 
+			font-size: 24px;   
+		}
+		.slide-up {
+			width: 25px;
+			height: 37px;
+		}
+		.slide-down {
+			width: 25px;
+			height: 37px;
+		}
 	}
-	
-    .lfr-pagination {
-        width: 100%;
-    }
+	.lfr-pagination {
+		width: 100%;
+	}
+
+	//List View Mode UI
+	.list-view-mode {
+		.clearfix {
+			clear: both;
+		}
+		.toggle-search-type {
+			display: none;
+		}
+		.skype-users-to-call,
+		.hangouts-users-to-call {
+			margin: 2em 2%;
+		}
+		.search-criteria {
+			margin: 20px 2% 30px 2%;
+		}
+		.people_paginator {
+			display: flex;
+			flex-wrap: wrap;
+		}
+		.results {
+			display: none;
+		}
+		.summary-box {
+			width: 100%;
+			float: left;
+			position: relative;
+		}
+		.small-profile-box {
+			width: 29.33%;
+			margin: 2%;
+			padding: 0;
+			float: left;
+			border: 1px solid #CCC;
+			border-radius: 0;
+			box-sizing: border-box;
+			box-shadow: none;
+			overflow: hidden;
+			.contact-short-info {
+				padding: 0;
+			}
+			&.opened {
+				.more-info {
+					bottom: 0;
+				}
+			}
+		}
+		.small-photo-box {
+			display: block;
+			width: 100% !important;
+			height: 200px !important;
+			margin: 0 0 30px 0;
+			float: none;
+			clear: both;
+			position: static;
+			overflow: hidden;
+			box-shadow: none;
+			border-bottom: 1px solid #CCC;
+			border-radius: 0;
+			a {
+				display: block;
+				width: 102%;
+				height: 102%;
+				margin: -1% 0 0 -1%;
+				/*width: 100px;
+				height: 100px;
+				margin: 50px auto;
+				border-radius: 50px;*/
+				background-repeat: no-repeat;
+				background-size: cover;
+				background-position: 50%;
+				img {
+					display: none !important;
+				}
+			}
+		}
+		.brief-wrapper {
+			width: 100%;
+			padding-left: 0;
+			text-align: center;
+			.field-value {
+				width: 100%;
+				padding: 0;
+			}
+			.name {
+				a {
+					display: block;
+				}
+			}
+			.mail,.contact-short-info {
+				padding: 20px 0;
+				display: inline-block;
+				float: none;
+				width: auto;
+				vertical-align: top;
+				.icon {
+					margin: 0;
+					padding: 0 10px;
+					font-size: 20px;
+				}
+			}
+		}
+		.more-info {
+			display: block !important;
+			width: 100%;
+			min-height: 100px;
+			padding: 10px 0;
+			float: none;
+			clear: both;
+			position: absolute;
+			bottom: -100%;
+			left: 0;
+			z-index: 100;
+			font-size: 12px;
+			background: #f9f9f9;
+			border-top:  1px solid #CCC;
+			border-radius: 0 0 3px 3px;
+			transition: bottom 0.5s;
+			.more-info-title {
+				font-size: 12px;
+				white-space: nowrap;
+			}
+		}
+		.slide-up,
+		.slide-down {
+			display: block;
+			background: none;
+			font-size: 24px;
+			color: #CCC;
+		}
+		.profile-info-table {
+			width: 100%;
+		}
+	}
+	&.tablet-view {
+		.small-profile-box {
+			width: 46%;
+		}
+	}
+	&.phone-view {
+		.small-profile-box {
+			width: 100%;
+		}
+	}
+}
+
+.tagselector-content {
+  margin-bottom: 5px;
+}
+input.simple-search-keywords {
+	width: 100%;
+	box-sizing: border-box;
+}
+.business-card {
+	border:2px solid #a1a1a1;
+	padding:10px 40px;
+	width:300px;
+	border-radius:25px;
+	margin-bottom: 15px;
+	.full-name{
+		font-size: 15px;
+		font-weight: bold;
+	}
+	.job-title{
+		font-size: 15px;
+	}
+	.email-address{
+		text-decoration: underline;
+	}
+}
+
+.field-value,
+.profile-description dt {
+	font-size: 15px;
+	font-weight: bold;
+	letter-spacing: 0;
+	text-shadow: 1px 1px 1px #FFFFFF;
+	display: block;
+	width: calc(100% - 25px);
+	padding-left: 10px;
+	float: left;
+}
+.mail.field-value {
+	word-wrap: break-word;
+}
+.profile-box {
+	width: 100%;
+	height: 245px;
+	background-color: #DABD95;
+	background-position: center bottom, left top;
+	background-repeat: repeat-x;
+	overflow: hidden;
+	display: block;
+	vertical-align: baseline;
+	border: 1px solid #522F1D;
+	border-radius: 3px;
+	.photo-inner {
+		background: url("http://rbista.com/demos/zwin/images/photo-inner.png") no-repeat scroll 0 0 transparent;
+		float: left;
+		height: 212px;
+		padding: 12px 0 0 20px;
+		width: 164px;
+	}
+	.photo-inner img {
+		background-color: #FFFFFF;
+	}
+	h1 {
+		color: #FFFFFF;
+		line-height: 1px;
+		margin-top: 12px;
+	}
+	h3 {
+		color: #FFFFFF;
+		font-size: 13px;
+		line-height: 0px;
+		margin-top: -3px;
+	}
+}
+.about {
+	float: left;
+	margin-left: 20px;
+	margin-top: 30px;
+	width: 376px;
+}
+.profile-info-table {
+	border: 0;
+	cellpadding: 0;
+	cellspacing: 0;
+	.info {
+		word-break: break-word;
+	}
+}
+dl.profile-description {
+	padding-left: 30px;
+	overflow: hidden;
+	dd,
+	dt {
+		float: left;
+	}
+	dt {
+		clear: left;
+		padding: 0 0 10px;
+		width: 100px;
+	}
+}
+#articleView {
+	padding:15px;
+	margin-bottom: -25px;
+	position:relative;
+	img {
+		float:left;
+		margin: 0 10px 10px 0;
+		padding: 4px;
+		width:150px;	
+	}
+	h1 {
+		font-size: 1.4em;
+		margin-top: 0;
+		margin-bottom: 10px;
+	}
+	h2 {
+		font-size: 13px;
+		font-weight: bold;
+		margin-top: 0;
+	}
+	h3 {
+		font-size: 11px;
+		font-weight: normal;
+		margin-top: 0;
+	}
+	h4 {
+		padding-bottom: 20px;
+	}
+	ul,
+	ol {
+		list-style-position: inside;
+	}
+	.article-content {
+		position:relative;
+	}
+	.article-body {
+		margin-top: 10px;
+	}
+	.profile-info-title {
+		border: none;
+	}
+	.profile-info-title h3.header-title {
+		font-weight: bold;
+		font-size: 18px;
+	}
+	.profile-info {
+		float: left;
+		span {
+			display: block;
+			padding-bottom: 20px;
+		}
+		label {
+			display: inline;
+			font-weight: bold;
+		}
+	}		
+	.clearfix {
+		width: 100%;
+	}
+}
+.back-link {
+	background: #727C81;
+	margin: -24px 0 0 -24px;
+	padding: 9px 24px 28px;
+	width: 100%;
+}
+.back-link-url a {
+	float: right;
+	text-decoration: none;
+	font-size: 11px;
+	font-style: normal;
+	font-weight: bold;
+	text-decoration: none;
+	margin-top: 5px;
+	color: #FFFFFF;
+}
+.configuration {
+	margin-top: -28px;
+}
+.pagination {
+	text-align: center;
+}
+.paginator-link.paginator-page-link {
+	width: 25px;
+	margin: 2px;
+	text-align: center;
+}
+.paginator-link.paginator-page-link.paginator-current-page {
+	color: #FFF;
 }
 
 /* -------------- SKYPE INTEGRATION -------------- */
@@ -378,138 +467,142 @@ div.people-directory-portlet {
 	padding: 1em;
 	margin: 2em 0;
 	background-color: white;
-}
-
-.skype-users-to-call #users li {
-	list-style: none;
-	background: #DEF;
-	padding: .5em;
-	display: inline-block;
-	margin: 0 .5em .5em 0;
-	border: 1px solid #B5D2FF;
-	
-	.icon-skype, .icon-phone {
-		margin-left: .5em;
+	hr {
+		margin: 0;
+	}
+	button {
+		min-width: 135px;
+	}
+	#users {
+		li {
+			list-style: none;
+			background: #DEF;
+			padding: .5em;
+			display: inline-block;
+			margin: 0 .5em .5em 0;
+			border: 1px solid #B5D2FF;
+			
+			.icon-skype, .icon-phone {
+				margin-left: .5em;
+			}
+			&:hover {
+				background: #CDE;
+			}
+		}
+	}
+	.handle {
+		cursor: pointer;
+		&:after {
+			content: "\f00d";
+			width: 1em;
+			height: 1em;
+			font-family: 'fontawesome-alloy';
+			padding: 0.5em;
+			color: #b7414d;
+			font-size: 1.2em;
+		}
+	}
+	.action-header {
+		font-weight: bold;
+		margin-bottom: 10px;
+		display: block;
+	}
+	.button-holder {
+		margin: 10px 0 0;
 	}
 }
 
-.skype-users-to-call button {
-	min-width: 135px;
+	
+
+
+
+#people-directory-container {
+	select.paginator-rows-per-page {
+		display: none;
+	}
+	.portlet-msg-error {
+		display: none;
+		margin-top: 1.5em;
+	}
+	.alredy-in-list-msg {
+		display: none;
+	}
 }
-
-.skype-users-to-call #users li:hover {
-	background: #CDE;
-}
-
-.skype-users-to-call .handle:after {
-	content: "\f00d";
-	width: 1em;
-	height: 1em;
-	font-family: 'fontawesome-alloy';
-	padding: 0.5em;
-	color: #b7414d;
-	font-size: 1.2em;
-}
-
-.skype-users-to-call .handle {
- 	cursor: pointer;
- }
-
- #people-directory-container .portlet-msg-error {
- 	display: none;
- 	margin-top: 1.5em;
- }
- 
- #people-directory-container .alredy-in-list-msg {
- 	display: none;
- }
-
 #users {
 	padding: 0;
 	margin: 0;
 }
-
-.skype-users-to-call .action-header {
-	font-weight: bold;
-	margin-bottom: 10px;
-	display: block;
-}
-
-.skype-users-to-call .button-holder {
-	margin: 10px 0 0;
-}
-
-.skype-users-to-call hr {
-	margin: 0;
-}
-
 .icon-remove:hover {
-    color: red;
+	color: red;
 }
-
 #modal * {
 	z-index: 300 !important;
 }
 
 /* -------------- HANGOUTS INTEGRATION -------------- */
-
+#hangouts-users {
+	padding: 0;
+	margin: 0;
+}
 .hangouts-users-to-call {
 	border: solid 1px #CCC;
 	padding: 1em;
 	margin: 2em 0;
 	background-color: white;
-}
-
-.hangouts-users-to-call #hangouts-users li {
-	list-style: none;
-	background: #DEF;
-	padding: .5em;
-	display: inline-block;
-	margin: 0 .5em .5em 0;
-	border: 1px solid #B5D2FF;
-	
-	.icon-skype, .icon-phone {
-		margin-left: .5em;
+	hr {
+		margin: 0;
+	}
+	#hangouts-users {
+		li {
+			list-style: none;
+			background: #DEF;
+			padding: .5em;
+			display: inline-block;
+			margin: 0 .5em .5em 0;
+			border: 1px solid #B5D2FF;
+			&:hover {
+				background: #CDE;
+			}			
+			.icon-skype, .icon-phone {
+				margin-left: .5em;
+			}
+		}
+	}
+	button {
+		min-width: 135px;
+	}
+	.handle {
+		cursor: pointer;
+		&:after {
+			content: "\f00d";
+			width: 1em;
+			height: 1em;
+			font-family: 'fontawesome-alloy';
+			padding: 0.5em;
+			color: #b7414d;
+			font-size: 1.2em;
+		}
+	}
+	.action-header {
+		font-weight: bold;
+		margin-bottom: 10px;
+		display: block;
+	}
+	.button-holder {
+		margin: 10px 0 0;
 	}
 }
-
-.hangouts-users-to-call button {
-	min-width: 135px;
-}
-
-.hangouts-users-to-call #hangouts-users li:hover {
-	background: #CDE;
-}
-
-.hangouts-users-to-call .handle:after {
-	content: "\f00d";
-	width: 1em;
-	height: 1em;
-	font-family: 'fontawesome-alloy';
-	padding: 0.5em;
-	color: #b7414d;
-	font-size: 1.2em;
-}
-
-.hangouts-users-to-call .handle {
- 	cursor: pointer;
- }
-
-#hangouts-users {
-	padding: 0;
-	margin: 0;
-}
-
-.hangouts-users-to-call .action-header {
-	font-weight: bold;
-	margin-bottom: 10px;
-	display: block;
-}
-
-.hangouts-users-to-call .button-holder {
-	margin: 10px 0 0;
-}
-
-.hangouts-users-to-call hr {
-	margin: 0;
+.aui .pagination ul {
+	> li {
+		display: none;
+		> a,
+		> span {
+			padding: 10px 20px;
+		}
+		&.first-pagination-control,
+		&.last-pagination-control,
+		&.pagination-control {
+			display: inline;
+		}
+	}
 }

@@ -66,11 +66,13 @@
 <portlet:defineObjects />
 <liferay-theme:defineObjects />
 
-<%
+<% 
 String currentURL = PortalUtil.getCurrentURL(renderRequest);
 PortletPreferences preferences = renderRequest.getPreferences();
 
 long orgTeamVocabularyId = GetterUtil.getLong(preferences.getValue(Constants.ORG_TEAM_VOCABULARY, PropsValues.ORG_TEAM_VOCABULARY));
+long viewMode = GetterUtil.getLong(preferences.getValue(Constants.VIEW_MODE, PropsValues.VIEW_MODE));
+
 int searchResultsPerPage = GetterUtil.getInteger(preferences.getValue(Constants.PREFERENCE_SEARCH_RESULTS_PER_PAGE, PropsValues.DEFAULT_RECORD_COUNT));
 int viewAllResultsPerPage = GetterUtil.getInteger(preferences.getValue(Constants.PREFERENCE_VIEW_ALL_RESULTS_PER_PAGE, PropsValues.DEFAULT_RECORD_COUNT));
 boolean displayJobTitle = GetterUtil.getBoolean(preferences.getValue(Constants.DISPLAY_USER_JOB_TITLE, PropsValues.DISPLAY_USER_JOB_TITLE), true);

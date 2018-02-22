@@ -21,6 +21,8 @@ public class PropsKeys {
 
     public static final String ORG_TEAM_VOCABULARY = "peopledirectory.org.team.vocabulary";
 
+    public static final String VIEW_MODE = "peopledirectory.view.mode";
+
 	public static final String MAX_SEARCH_ITEMS = "peopledirectory.max.search.items";
 	
 	public static final String DEFAULT_RECORD_COUNT = "peopledirectory.default.record.count";

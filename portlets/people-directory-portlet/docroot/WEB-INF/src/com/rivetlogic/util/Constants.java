@@ -103,6 +103,8 @@ public interface Constants extends com.liferay.portal.kernel.util.Constants  {
     static final String PORTLET_RESOURCE = "portletResource";
 
     static final String ORG_TEAM_VOCABULARY = "orgTeamVocabulary";
+
+    static final String VIEW_MODE = "viewMode";
     
     static final String PREFERENCE_VIEW_ALL_RESULTS_PER_PAGE = "VIEW_ALL_RESULTS_PER_PAGE";
     
