@@ -32,7 +32,8 @@ AUI.add(
                 instance.skiilsTagSelector = null;
                 instance.setComponents();
                 instance.initSearchOnInit();      
-                instance.fixForSmallColumnWidth();      
+                instance.fixForSmallColumnWidth();
+                instance.pageResizeListener();    
             },
 
             initSearchOnInit: function(){
@@ -43,10 +44,22 @@ AUI.add(
                 }
             },
 
+            pageResizeListener: function() {
+                var instance = this;
+                A.on('orientationchange', function(e) {
+                    instance.fixForSmallColumnWidth();
+                });
+                A.on('resize', function(e) {
+                    instance.fixForSmallColumnWidth();
+                });
+            },
+
             fixForSmallColumnWidth: function(){
                 var instance = this;
                 var portletNode = A.one('.people-directory-portlet');
                 var columnWidth = portletNode.width();
+
+                portletNode.removeClass('phone-view').removeClass('tablet-view');
 
                 if(A.one('#list-view-mode')) {
                     if(columnWidth <= Liferay.PeopleDirectory.CONSTANTS.LIFERAY_TABLET_BREAKPOINT) {
@@ -57,6 +70,8 @@ AUI.add(
                         portletNode.addClass('phone-view');
                     }
                 }
+
+               
             },
 
             setComponents: function (container) {

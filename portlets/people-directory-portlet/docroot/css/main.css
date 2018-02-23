@@ -130,18 +130,24 @@
 		.clearfix {
 			clear: both;
 		}
-		.toggle-search-type {
-			display: none;
-		}
 		.skype-users-to-call,
 		.hangouts-users-to-call {
 			margin: 2em 2%;
 		}
-		.search-criteria {
+		.search-criteria,
+		.skills-criteria {
 			margin: 20px 2% 30px 2%;
 		}
+		.skills-criteria {
+			width: auto;
+		}
 		.people_paginator {
+			display: -webkit-box;
+			display: -moz-box;
+			display: -ms-flexbox;
+			display: -webkit-flex;
 			display: flex;
+			-webkit-flex-wrap: wrap;
 			flex-wrap: wrap;
 		}
 		.results {
@@ -153,7 +159,7 @@
 		}
 		.small-profile-box {
 			width: 29.33%;
-			margin: 2%;
+			margin: 18px 2%;
 			padding: 0;
 			float: left;
 			border: 1px solid #CCC;
