@@ -193,10 +193,6 @@
 				width: 102%;
 				height: 102%;
 				margin: -1% 0 0 -1%;
-				/*width: 100px;
-				height: 100px;
-				margin: 50px auto;
-				border-radius: 50px;*/
 				background-repeat: no-repeat;
 				background-size: cover;
 				background-position: 50%;
@@ -235,9 +231,11 @@
 			display: block !important;
 			width: 100%;
 			min-height: 100px;
+    		max-height: 100%;
 			padding: 10px 0;
 			float: none;
 			clear: both;
+			overflow: auto;
 			position: absolute;
 			bottom: -100%;
 			left: 0;
@@ -251,6 +249,21 @@
 				font-size: 12px;
 				white-space: nowrap;
 			}
+			table,
+			tbody,
+			tr,
+			td {
+				display: block;
+				width: 100%;
+			}
+			.info {
+				padding: 0 10px;
+			}
+			/*.skills {
+				max-height: 70px;
+				overflow: hidden;
+				overflow-y: auto;
+			}*/
 		}
 		.slide-up,
 		.slide-down {
@@ -258,6 +271,7 @@
 			background: none;
 			font-size: 24px;
 			color: #CCC;
+			z-index: 100;
 		}
 		.profile-info-table {
 			width: 100%;
@@ -455,6 +469,9 @@ dl.profile-description {
 }
 .pagination {
 	text-align: center;
+    ul {
+        box-shadow: none;
+    }
 }
 .paginator-link.paginator-page-link {
 	width: 25px;

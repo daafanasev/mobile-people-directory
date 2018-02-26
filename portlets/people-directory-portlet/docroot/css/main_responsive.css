@@ -27,7 +27,13 @@
             	width: 90%;
             }
         }
-        
+        .list-view-mode {
+            .more-info {
+                .profile-info-table {
+                    width: 100%;
+                }
+            }
+        }
         .lfr-search-container {
             overflow: hidden;
         }
@@ -124,16 +130,9 @@
 		}
 		
 		.pagination {
-            li {
-                display: none;
-                a {
-                    padding: 10px 5px;
-                }
-            }
             li.first-pagination-control,
             li.last-pagination-control,
-            li.pagination-control,
-            li.active {
+            li.pagination-control {
                 display: inline;
             }
         }
