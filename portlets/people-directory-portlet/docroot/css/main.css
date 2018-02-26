@@ -255,6 +255,7 @@
 			td {
 				display: block;
 				width: 100%;
+				clear: both;
 			}
 			.info {
 				padding: 0 10px;
