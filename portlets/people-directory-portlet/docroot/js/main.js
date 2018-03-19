@@ -31,6 +31,47 @@ AUI.add(
                 instance.skillsEnabled = params.skillsEnabled;
                 instance.skiilsTagSelector = null;
                 instance.setComponents();
+                instance.initSearchOnInit();      
+                instance.fixForSmallColumnWidth();
+                instance.pageResizeListener();    
+            },
+
+            initSearchOnInit: function(){
+                var instance = this;
+                if(A.one('#simpleSearchForm')) {
+                    var maxItems = A.one('#' + instance.namespace + 'maxItems').get('value');
+                    instance.performSearch('', maxItems);
+                }
+            },
+
+            pageResizeListener: function() {
+                var instance = this;
+                A.on('orientationchange', function(e) {
+                    instance.fixForSmallColumnWidth();
+                });
+                A.on('resize', function(e) {
+                    instance.fixForSmallColumnWidth();
+                });
+            },
+
+            fixForSmallColumnWidth: function(){
+                var instance = this;
+                var portletNode = A.one('.people-directory-portlet');
+                var columnWidth = portletNode.width();
+
+                portletNode.removeClass('phone-view').removeClass('tablet-view');
+
+                if(A.one('#list-view-mode')) {
+                    if(columnWidth <= Liferay.PeopleDirectory.CONSTANTS.LIFERAY_TABLET_BREAKPOINT) {
+                        portletNode.addClass('tablet-view');
+                    }
+
+                    if(columnWidth <= 400) {
+                        portletNode.addClass('phone-view');
+                    }
+                }
+
+               
             },
 
             setComponents: function (container) {
@@ -57,11 +98,16 @@ AUI.add(
                 		}
                 		timeout = setTimeout(function (){
 	                        var searchText = instance.searchInput.get('value');
+                            var maxItems = A.one('#' + instance.namespace + 'maxItems').get('value');
 	                        searchText = searchText.trim();
 	                        if (searchText != null && searchText.length > 2) {
-	                        	var maxItems = A.one('#' + instance.namespace + 'maxItems').get('value');
 	                        		instance.performSearch(searchText, maxItems);
 	                        }
+                            if(A.one('#simpleSearchForm')) {
+                                if (searchText.length == 0) {
+                                    instance.performSearch(searchText, maxItems);
+                                }
+                            }
                 		}, 1000);
                 	});
                     
@@ -129,6 +175,10 @@ AUI.add(
     			resourceURL.setParameter("keywords", searchText);
     			resourceURL.setParameter("start", 0);
     			resourceURL.setParameter("end", maxItems);
+
+                if(A.one('.loader')) {
+                    A.one('.loader').removeClass('hide');
+                }
     			
     			A.io(resourceURL.toString(), {
                     method: "GET",
@@ -147,6 +197,10 @@ AUI.add(
                                 instance.paginator.set('page', 1);
                                 instance.paginator.fire('changeRequest', { state: { page: 1 }, lastState: null });
                                 instance.paginator._syncNavigationUI();
+                            }
+
+                            if(A.one('.loader')) {
+                                A.one('.loader').addClass('hide');
                             }
                         },
                         failure: function () {
@@ -236,10 +290,10 @@ AUI.add(
                     circular: false,
                     maxPagesNavItems: instance.CONSTANTS.MAX_PAGE_LINKS,
                     strings: {
-                    	firstNavLinkText: Liferay.Language.get("pagination.first.label"),
-                    	lastNavLinkText: Liferay.Language.get("pagination.last.label"),
-                    	prev: Liferay.Language.get("pagination.prev.label"),
-                    	next: Liferay.Language.get("pagination.next.label")
+                        firstNavLinkText: '<i class="icon-fast-backward"></i>',
+                        lastNavLinkText: '<i class="icon-fast-forward"></i>',
+                        next: '<i class="icon-forward"></i>',
+                        prev: '<i class="icon-backward"></i>'
                     },
                     after: {
                         changeRequest: function(event) {
@@ -337,6 +391,8 @@ AUI.add(
                 	image = box.find(".small-photo-box img"),
                 	/*calculating image proportional height*/
                 	boxHeight = image.height() * boxWidth.substring(0, boxWidth.length -2) / image.width();
+
+                box.addClass('opened');
                 
                 if (!boxHeight || boxHeight <= 0) boxHeight = boxWidth;
                 
@@ -344,12 +400,12 @@ AUI.add(
                 box.find(".more-info").show();
                 box.find(".slide-up").show();
                 
-                image.height(boxHeight).width(boxWidth);
+                /*image.height(boxHeight).width(boxWidth);
                 
                 box.find(".small-photo-box").animate({
                     height: boxHeight,
                     width: boxWidth
-                }, "slow");
+                }, "slow");*/
             },
 
             slideUp: function (event) {
@@ -365,6 +421,8 @@ AUI.add(
                 	boxWidth = Liferay.PeopleDirectory.CONSTANTS.PICTURE_SIZE,
                 	/*calculating image proportional height*/
                 	boxHeight = image.height() * boxWidth.substring(0, boxWidth.length -2) / image.width();
+
+                box.removeClass('opened');
                 
                 if (!boxHeight || boxHeight <= 0) boxHeight = boxWidth;
                 
@@ -372,14 +430,14 @@ AUI.add(
                 box.find(".more-info").hide();
                 box.find(".slide-up").hide();
                 
-                image.animate({
+                /*image.animate({
                 	height: boxHeight,
                     width: boxWidth
                 }, "slow");
                 box.find(".small-photo-box").animate({
                     height: boxHeight,
                     width: boxWidth
-                }, "slow");
+                }, "slow");*/
                 
             },
             
@@ -424,7 +482,8 @@ AUI.add(
             fields: null,
             
             CONSTANTS: {
-                LIFERAY_PHONE_BREAKPOINT: 768, // phone media query breakpoint defined by liferay
+                LIFERAY_PHONE_BREAKPOINT: 979, // phone media query breakpoint defined by liferay
+                LIFERAY_TABLET_BREAKPOINT: 768, // tablet media query breakpoint defined by liferay
                 PICTURE_SIZE: '55px', // picture size, width and height
                 SLIDE_DOWN_PICTURE_SIZE_PHONE: '80px', // image size when user is expanded
                 SLIDE_DOWN_PICTURE_SIZE: '130px', // image size when user is expanded

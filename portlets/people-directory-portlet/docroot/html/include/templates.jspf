@@ -56,18 +56,21 @@
       <c:if test="<%= displayPhone %>">
           <tr>
             <td class="field-value more-info-title"><liferay-ui:message key="phone" />:</td>
-            <td class="info">{{phone}}</td>
-            <c:if test="<%= skypeEnabled %>">
+            <td class="info">
+              {{phone}}
+              <c:if test="<%= skypeEnabled %>">
                 {{#if phone}}
-                    <td><span class="icon icon-phone" title="{{phone}}" userId="{{id}}" username="{{fullName}}"></span></td>
+                  <span class="icon icon-phone" title="{{phone}}" userId="{{id}}" username="{{fullName}}"></span>
                 {{/if}}
-            </c:if>
+              </c:if>
+            </td>
+            
           </tr>
       </c:if>
 	<c:if test="<%= skillsEnabled %>">
 	  <tr>
 		<td class="field-value more-info-title"><liferay-ui:message key="people-directory.label.skills" />:</td>
-		<td class="info">{{#skills}}<span class="label">{{.}}</span> {{/skills}}</td>
+		<td class="info skills">{{#skills}}<span class="label">{{.}}</span> {{/skills}}</td>
 	  </tr>
 	</c:if>
   </table>  
@@ -77,32 +80,32 @@
 		
 		<div class="summary-box">
        		<div class="small-photo-box">
-             	<a href="{{profileURL}}"><img src="{{portraitUrl}}"/></a>
+             	<a href="{{profileURL}}" style="background-image:url({{portraitUrl}})"><img src="{{portraitUrl}}"/></a>
             </div>
             <div class="brief-wrapper">
-                <div class="name field-value"><a href="{{profileURL}}">{{fullName}}</a></div>
-       		    <div class="mail field-value"><a href="mailto:{{emailAddress}}">{{emailAddress}}</a></div>
-				<div class="contact-short-info">
-                	<c:if test="<%= skypeEnabled %>">
-                        {{#if skypeName}}
-                            <span class="icon icon-skype" title="{{skypeName}}" userId="{{id}}" username="{{fullName}}"></span>
-                        {{/if}}
-                        {{#if phone}}
-                            <span class="icon icon-phone" title="{{phone}}" userId="{{id}}" username="{{fullName}}"></span>
-                        {{/if}}
-                	</c:if>
-					<c:if test="<%= hangoutsEnabled %>">
-						<span class="icon icon-google-plus" userId="{{emailAddress}}" username="{{fullName}}"></span>
-					</c:if>
-				</div>
+            <div class="name field-value"><a href="{{profileURL}}">{{fullName}}</a></div>
+      				<div class="contact-short-info">
+                <span class="icon"><a href="mailto:{{emailAddress}}"><i class="icon-envelope"></i></a></span>
+              	<c:if test="<%= skypeEnabled %>">
+                      {{#if skypeName}}
+                          <span class="icon icon-skype" title="{{skypeName}}" userId="{{id}}" username="{{fullName}}"></span>
+                      {{/if}}
+                      {{#if phone}}
+                          <span class="icon icon-phone" title="{{phone}}" userId="{{id}}" username="{{fullName}}"></span>
+                      {{/if}}
+              	</c:if>
+      					<c:if test="<%= hangoutsEnabled %>">
+      						<span class="icon icon-google-plus" userId="{{emailAddress}}" username="{{fullName}}"></span>
+      					</c:if>
+      				</div>
             </div>
        		
-       		<div class="more-info" style="display:none"></div>
+       		<div class="more-info clearfix" style="display:none"></div>
       		
 		</div>
-       <div class="slide-down" data-user-id="{{id}}" data-full-name="{{fullName}}"></div>
-       <div class="slide-up" data-user-id="{{id}}" style="display:none"></div>
-       <div class="clearfix"></div>
+    <div class="slide-down" data-user-id="{{id}}" data-full-name="{{fullName}}"><i class="icon-plus-sign"></i></div>
+    <div class="slide-up" data-user-id="{{id}}" style="display:none"><i class="icon-minus-sign"></i></div>
+    <div class="clearfix"></div>
    </div>
 </script>
 <c:if test="<%= skypeEnabled %>">

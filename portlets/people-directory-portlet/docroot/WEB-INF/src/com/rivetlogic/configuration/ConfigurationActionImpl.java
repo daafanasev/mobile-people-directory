@@ -46,6 +46,8 @@ public class ConfigurationActionImpl extends DefaultConfigurationAction {
         if (cmd.equals(Constants.UPDATE)) {
             setPreference(actionRequest, Constants.ORG_TEAM_VOCABULARY,
                     ParamUtil.getString(actionRequest, Constants.ORG_TEAM_VOCABULARY));
+            setPreference(actionRequest, Constants.VIEW_MODE,
+                    ParamUtil.getString(actionRequest, Constants.VIEW_MODE));
             setPreference(actionRequest, Constants.PREFERENCE_VIEW_ALL_RESULTS_PER_PAGE,
                     ParamUtil.getString(actionRequest, Constants.PARAMETER_VIEW_ALL_RESULTS_PER_PAGE));
             setPreference(actionRequest, Constants.PREFERENCE_SEARCH_RESULTS_PER_PAGE,

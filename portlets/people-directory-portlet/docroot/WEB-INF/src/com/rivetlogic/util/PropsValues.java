@@ -23,6 +23,8 @@ public class PropsValues {
 
     public static final String ORG_TEAM_VOCABULARY = PropsUtil.get(PropsKeys.ORG_TEAM_VOCABULARY);
 
+    public static final String VIEW_MODE = PropsUtil.get(PropsKeys.VIEW_MODE);
+
 	public static final String MAX_SEARCH_ITEMS = PropsUtil.get(PropsKeys.MAX_SEARCH_ITEMS);
 	
 	public static final String DEFAULT_RECORD_COUNT = PropsUtil.get(PropsKeys.DEFAULT_RECORD_COUNT);

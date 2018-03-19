@@ -59,6 +59,11 @@ for (int i = 0; i < groupIds.length; i++) {
             %>
             </aui:select>
 
+            <aui:select label="View Mode" name="<%= Constants.VIEW_MODE%>" >
+                <aui:option selected="<%= viewMode == 1 %>" value="1">Tabs</aui:option>
+                <aui:option selected="<%= viewMode == 2 %>" value="2">List</aui:option>
+                <aui:option selected="<%= viewMode == 3 %>" value="3">Grid</aui:option>
+            </aui:select>
 
 
             <aui:input name="<%= Constants.PARAMETER_VIEW_ALL_RESULTS_PER_PAGE%>" label="view-all-results-per-page" value='<%=viewAllResultsPerPage%>' />
@@ -71,7 +76,8 @@ for (int i = 0; i < groupIds.length; i++) {
 			<aui:input name="<%= Constants.DISPLAY_USER_CITY %>" label="display-city" type="checkbox" value="<%= displayCity %>"/>
 			<aui:input name="<%= Constants.DISPLAY_USER_PHONE %>" label="display-phone" type="checkbox" value="<%= displayPhone %>"/>
 			<aui:input name="<%= Constants.SKILLS_INTEGRATION %>" label="skills-integrated" type="checkbox" value="<%= skillsEnabled %>"/>
-	 </aui:fieldset>
-			<aui:button type="submit" />
+	 	</aui:fieldset>
+	 	
+		<aui:button type="submit" />
 	</aui:form>
 </div>

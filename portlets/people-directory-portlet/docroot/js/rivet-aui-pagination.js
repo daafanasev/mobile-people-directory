@@ -131,10 +131,10 @@ AUI.add('rivet-aui-pagination', function (Y, NAME) {
             
             strings: {
                 value: {
-                	firstNavLinkText: 'First',
-                	lastNavLinkText: 'Last',
-                    next: 'Next',
-                    prev: 'Prev'
+                	firstNavLinkText: '<i class="icon-fast-backward"></i>',
+                	lastNavLinkText: '<i class="icon-fast-forward"></i>',
+                    next: '<i class="icon-forward"></i>',
+                    prev: '<i class="icon-backward"></i>'
                 }
             }
         }
